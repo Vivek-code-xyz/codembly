@@ -973,10 +973,22 @@ export default function App() {
                       <button type="button" className={`inspector-subtab ${inspectorView === "registers" ? "is-active" : ""}`} onClick={() => setInspectorView("registers")}>
                         Registers
                       </button>
-                      <button type="button" className={`inspector-subtab ${inspectorView === "memory" ? "is-active" : ""}`} onClick={() => setInspectorView("memory")}>
+                      <button
+                        type="button"
+                        disabled={isRunning}
+                        className={`inspector-subtab ${inspectorView === "memory" ? "is-active" : ""}`}
+                        onClick={() => setInspectorView("memory")}
+                        title={isRunning ? "Memory view disabled during execution" : "Memory Viewer"}
+                      >
                         Memory
                       </button>
-                      <button type="button" className={`inspector-subtab ${inspectorView === "io" ? "is-active" : ""}`} onClick={() => setInspectorView("io")}>
+                      <button
+                        type="button"
+                        disabled={isRunning}
+                        className={`inspector-subtab ${inspectorView === "io" ? "is-active" : ""}`}
+                        onClick={() => setInspectorView("io")}
+                        title={isRunning ? "I/O view disabled during execution" : "Input/Output"}
+                      >
                         I-O
                       </button>
                     </div>

@@ -712,6 +712,7 @@ button:disabled {
 .execution-panel.is-running {
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .app-running .hero::after,
@@ -1865,11 +1866,9 @@ button:disabled {
 }
 
 .inspector-subtab.is-active {
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--accent) 22%, transparent),
-    color-mix(in srgb, var(--accent) 12%, transparent)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--accent) 22%, transparent),
+      color-mix(in srgb, var(--accent) 12%, transparent));
   color: var(--accent);
   font-weight: 700;
   box-shadow:
@@ -1910,6 +1909,11 @@ button:disabled {
   gap: 0;
   margin-bottom: 0.82rem;
   min-height: 0;
+  position: relative;
+  z-index: 10;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.82rem;
 }
 
 .right-column>.machine-switcher {
@@ -2510,6 +2514,10 @@ button:disabled {
   flex-direction: column;
   min-height: 0;
   overflow: hidden;
+}
+
+.execution-panel.embedded-panel {
+  padding-top: 0.35rem;
 }
 
 .runtime-status-layout {

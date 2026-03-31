@@ -151,7 +151,7 @@ function loadAppearanceSettings() {
     const raw = window.localStorage.getItem(APPEARANCE_KEY);
     if (!raw) {
       return {
-        theme: "light",
+        theme: "dark",
         stylePreset: "studio",
         fontPreset: "modern",
         density: "comfortable",
@@ -168,7 +168,7 @@ function loadAppearanceSettings() {
     };
   } catch {
     return {
-      theme: "light",
+      theme: "dark",
       stylePreset: "studio",
       fontPreset: "modern",
       density: "comfortable",
@@ -233,7 +233,7 @@ export default function App() {
   const [history, setHistory] = useState([]);
   const [isRunning, setIsRunning] = useState(false);
   const [inputBuffer, setInputBuffer] = useState("");
-  const [runSpeed, setRunSpeed] = useState(4);
+  const [runSpeed, setRunSpeed] = useState(2);
   const [bottomTab, setBottomTab] = useState("listing");
   const [inspectorView, setInspectorView] = useState("registers");
   const [machineView, setMachineView] = useState("memory");
@@ -695,7 +695,7 @@ export default function App() {
       return undefined;
     }
 
-    const baseMicroStepsPerSecond = 24;
+    const baseMicroStepsPerSecond = 10;
     const targetMicroStepsPerSecond = baseMicroStepsPerSecond * runSpeed;
     const maxStepsPerFrame = 320;
 
@@ -1074,33 +1074,45 @@ export default function App() {
           <div className="footer-brand">
             <div className="footer-note-copy">
               <strong>Codembly</strong>
-              <p>A browser-based workspace for writing, assembling, and exploring Basic Computer assembly language with live memory and execution views.</p>
+              <p>Dark-first assembly studio for the Morris Mano Basic Computer. Write code, assemble instantly, and watch memory + register state update in real time.</p>
             </div>
-            <div className="footer-note-meta">
-              <span>Made with AI</span>
-              <span>Created by Vivek Khasiya</span>
+            <div className="footer-brand-meta">
+              <span>Dark default</span>
+              <span>Realtime assembly</span>
+              <span>Browser persistence</span>
             </div>
           </div>
+
+          <div className="footer-links">
+            <span className="footer-section-label">Highlights</span>
+            <ul className="footer-list">
+              <li>Interactive register and memory inspector</li>
+              <li>Assembler errors shown immediately</li>
+              <li>Import/export `.ASM` files in-browser</li>
+            </ul>
+          </div>
+
           <div className="footer-connect">
             <span className="footer-section-label">Connect</span>
             <div className="footer-contact-links">
-              <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <a href="https://github.com/Vivek-code-xyz" target="_blank" rel="noreferrer" aria-label="GitHub">
                 <GithubIcon />
                 <span>GitHub</span>
               </a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/vivek-khasiya-0aa6b1305/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
                 <LinkedinIcon />
                 <span>LinkedIn</span>
               </a>
-              <a href="mailto:vivek@example.com" aria-label="Email">
+              <a href="mailto:khasiyavivek86@gmail.com" aria-label="Email">
                 <Mail />
-                <span>vivek@example.com</span>
+                <span>khasiyavivek86@gmail.com</span>
               </a>
               <div className="footer-contact-item" aria-label="Location">
                 <MapPin />
                 <span>Ahmedabad, India</span>
               </div>
             </div>
+            <p className="footer-legal">© {new Date().getFullYear()} Codembly — built for learners and educators.</p>
           </div>
         </div>
       </footer>
